@@ -403,6 +403,10 @@ app.get("/store/valid", function(req, res){
 });
 
 app.get('/store/info/', function(req, res){
+    if(!AdminPriv){
+	res.redirect("/restricted/")
+	return;
+    }
     if(!loggedinbool){
 	res.redirect("/");
 	return;
